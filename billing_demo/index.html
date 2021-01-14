@@ -1,0 +1,36 @@
+<!-- index.html - This is the home page and primary container for the app -->
+<!doctype html>
+<html ng-app="stripeApp">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomesCool</title>
+
+  <!-- Import CSS -->
+  <link rel="stylesheet" href="./css/schoolstyle.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@800&display=swap" rel="stylesheet">
+
+  <!-- Import JS and Angular -->
+  <script src="./node_modules/jquery/dist/jquery.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="./node_modules/angular-route/angular-route.js"></script>
+
+  <!-- Include app and controller -->
+  <script src="app.js"></script>
+  <script src="./orderController.js"></script>
+
+  <!-- Stripe and Payments Imports - included in checkout.html -->
+
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<!-- Add controller to the body to enable Angular functionality -->
+<body ng-controller="orderController">
+
+  <!-- Include the Angular view -->
+  <div ng-view style="height:100%;"></div>
+
+</body>
+</html>

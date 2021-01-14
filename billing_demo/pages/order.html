@@ -1,0 +1,53 @@
+<!-- order.html - This view displays all product items, dynamically populated by Angular from JSON -->
+<div class="item-container">
+  <div class="item-container-title">HomesCool Catalog for {{selectedCustomerType}}</div>
+
+  <!-- Loop through and display all product items. This uses Angular to populate the object attributes from JSON -->
+  <div ng-repeat="item in products">
+    <div ng-if="selectedCustomerType==item.customerType" class="item-box" style="cursor:pointer;">
+      
+      <!-- Item attributes displayed on the left side of the product box -->
+      <div class="item-box-left">
+        <div class="item-line">
+          <div class="item-title-text">{{item.itemName}}</div>
+        </div>
+        <div class="item-line">
+          <div class="item-description">
+            {{item.itemDescription}}
+          </div>
+        </div>
+
+        <!-- <div class="item-line">
+          <div class="item-subtitle-text">Billing Plans</div>
+        </div> -->
+        <!-- <div class="item-line" ng-repeat="plan in item.billingPlans">
+          <div ng-if="plan.billing_scheme=='tiered'">
+            <div class="item-price" ng-repeat="tier in plan.tiers">${{ tier.unit_amount / 100}} per {{plan.interval}} for up to {{tier.up_to}} students.</div>
+          </div>
+
+          <div ng-if="plan.billing_scheme!='tiered'" class="item-price">${{ plan.unit_amount / 100 }} per {{plan.interval}}</div>
+        </div> -->
+
+        <div class="input-label">Select Plan</div>
+        <div class="contact-info-input-line">
+          <select name="customerType"
+                  class="input-box"
+                  ng-init="selectedPlan = item.billingPlans[0]"
+                  ng-model="selectedPlan"
+                  ng-options="values.description for values in item.billingPlans"
+                  ng-change="">
+          </select>
+        </div>
+      </div>
+      
+      <!-- Add to cart button on the right side of the product box -->
+      <div class="item-box-right">
+          <!-- Custom shopping cart button using Google Material Design icon -->
+          <div class="item-add" ng-click="addToCart(item, selectedPlan)">
+            <img src="./img/add_shopping_cart.svg" class="cart-icon" width="24px">
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>

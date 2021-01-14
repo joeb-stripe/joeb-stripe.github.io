@@ -1,0 +1,40 @@
+<!-- cart.html - This view displays the items in the shopping cart -->
+<div class="item-container">
+
+  <div class="item-container-title">Login</div>
+
+  <!-- Add fields to collect customer info -->
+  <div>
+    <form name="loginForm">
+
+      <div class="input-label">Email</div>
+      <div class="contact-info-input-line">
+        <input type="text" class="input-box" name="email" ng-model="userEmail" ng-pattern="patterns.email" required ng-trim="false">
+        <div role="alert">
+          <span class="error" ng-show="loginForm.email.$error.required">
+            Required!</span>
+          <span class="error" ng-show="loginForm.email.$error.pattern">
+            Email not valid!</span>
+        </div>
+      </div>
+
+    </form>
+
+    <div class="cart-info">
+      <div class="order-button order-button-inactive" ng-show="loginForm.name.$error.required||loginForm.name.$error.pattern||loginForm.email.$error.required||loginForm.email.$error.pattern">
+        Fix input to continue
+      </div>
+    </div>
+
+    <div role="alert">
+      <span class="error" ng-show="loginForm.name.$error.required||loginForm.name.$error.pattern||loginForm.email.$error.required||loginForm.email.$error.pattern">
+        Input error above!</span>
+    </div>
+
+ 
+    <!-- Display continue to payment button - only if cart has item(s) -->
+    <div class="cart-info"  ng-show="!loginForm.name.$error.required&&!loginForm.name.$error.pattern&&!loginForm.email.$error.required&&!loginForm.email.$error.pattern">
+      <div class="order-button" ng-click="login(userEmail)" style="cursor:pointer;">Continue</div>
+    </div>
+  </div>
+</div>

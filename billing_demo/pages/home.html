@@ -1,0 +1,48 @@
+<!-- home.html - This page is the main container for the SPA. Common elements are included on top, Views are included below. -->
+<!-- Top bar - common across all pages. -->
+<div class="topbar" id="topbar">
+  <div class="topbar-logo"><a href="./#/order">HomesCool</a></div>
+
+  <div class="topbar-link-box">
+    <!-- Display the number of items in the cart -->
+    <div class="topbar-link topbar-link-text" ng-click="changePage('cart')" style="cursor:pointer;">({{cart.itemCount}})</div>
+    <!-- Display a custom shopping cart icon (from Google Material) -->
+    <div class="topbar-link" ng-click="changePage('cart')" style="cursor:pointer;">
+      <img src="./img/shopping_cart-white.svg" class="cart-icon-top" width="30px">
+    </div>
+  </div>
+</div>
+
+<!-- Dynamic views for single page app, supports URL routing -->
+<div ng-if="page=='home'">
+  <div ng-include="'./pages/order.html'"></div>
+</div>
+
+<div ng-if="page=='admin-setup'">
+  <div ng-include="'./pages/admin-setup.html'"></div>
+</div>
+
+<div ng-if="page=='signup'">
+  <div ng-include="'./pages/signup.html'"></div>
+</div>
+
+<div ng-if="page=='login'">
+  <div ng-include="'./pages/login.html'"></div>
+</div>
+
+<div ng-if="page=='order'">
+  <div ng-include="'./pages/order.html'"></div>
+</div>
+
+<div ng-if="page=='cart'">
+  <div ng-include="'./pages/cart.html'"></div>
+</div>
+
+<div ng-if="page=='payment'">
+  <div ng-include="'./pages/payment.html'"></div>
+</div>
+
+<div ng-if="page=='confirmation'">
+  <div ng-include="'./pages/confirmation.html'"></div>
+</div>
+

@@ -1,0 +1,47 @@
+<!-- checkout.html - this page handles the Stripe payment with scripts provided by Payment API sample -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HomesCool Payment</title>
+    <meta name="description" content="A demo of a card payment on Stripe" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/stripe.css" />
+    <link rel="stylesheet" href="../css/schoolstyle.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="./client.js" defer></script>
+  </head>
+  <body>
+
+    <!-- Display the same topbar as other pages -->
+    <div class="topbar" id="topbar">
+      <div class="topbar-logo"><a href="../#/order">HomesCool</a></div>
+
+      <div class="topbar-link-box topbar-link-box-checkout">
+        <div class="topbar-link"><a href="../#/cart"><img src="../img/shopping_cart-white.svg" class="cart-icon-top" width="30px"></a></div>
+      </div>
+    </div>
+
+    <div class="checkout-box">
+      <div class="checkout-title">Checkout</div>
+      
+      <div class="checkout-info">Please enter your credit card information below to complete your purchase.</div>
+    
+      <!-- Display a payment form -->
+      <form id="payment-form">
+        <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+        <button id="submit">
+          <div class="spinner hidden" id="spinner"></div>
+          <span id="button-text">Pay</span>
+        </button>
+        <p id="card-error" role="alert"></p>
+        <p class="result-message hidden">
+          Payment succeeded, see the result in your
+          <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+        </p>
+      </form>
+    </div>
+    
+  </body>
+</html>
